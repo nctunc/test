@@ -1,0 +1,218 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f7fb;
+  --card: rgba(255, 255, 255, 0.96);
+  --border: #d9e3f0;
+  --text: #19324d;
+  --muted: #5c7189;
+  --accent: #2563eb;
+  --accent-soft: #dbeafe;
+  --success: #047857;
+  --shadow: 0 18px 40px rgba(37, 99, 235, 0.08);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+  color: var(--text);
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+.page-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 0.8rem;
+  margin: 0 0 8px;
+}
+
+.hero h1,
+.form-card h2,
+.list-card h2 {
+  margin: 0;
+}
+
+.hero-copy,
+.list-header p,
+.suggestion-meta,
+.form-message,
+.empty-state {
+  color: var(--muted);
+}
+
+.hero-badge {
+  min-width: 180px;
+  align-self: flex-start;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 18px;
+  border-radius: 16px;
+  display: grid;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) 1fr;
+  gap: 24px;
+}
+
+.form-card,
+.list-card {
+  padding: 24px;
+}
+
+.suggestion-form,
+.suggestion-form label {
+  display: grid;
+  gap: 10px;
+}
+
+.suggestion-form label { margin-top: 16px; }
+.suggestion-form input,
+.suggestion-form textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: #fff;
+}
+
+.primary-button,
+.like-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 120ms ease, opacity 120ms ease, background-color 120ms ease;
+}
+
+.primary-button {
+  margin-top: 18px;
+  background: var(--accent);
+  color: #fff;
+}
+
+.primary-button:hover,
+.like-button:hover:not(:disabled) { transform: translateY(-1px); }
+
+.form-message {
+  min-height: 20px;
+  margin: 4px 0 0;
+}
+
+.form-message.success { color: var(--success); }
+.form-message.error { color: #b91c1c; }
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.suggestions-list {
+  display: grid;
+  gap: 16px;
+}
+
+.suggestion-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+  background: #fff;
+}
+
+.suggestion-title-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.suggestion-title,
+.suggestion-description,
+.suggestion-meta { margin: 0; }
+.suggestion-description {
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.likes-pill {
+  flex-shrink: 0;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.like-button {
+  align-self: center;
+  background: #e8f0ff;
+  color: var(--accent);
+}
+
+.like-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.empty-state {
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 800px) {
+  .hero,
+  .layout-grid,
+  .suggestion-item {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .hero-badge {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .like-button {
+    width: 100%;
+  }
+}

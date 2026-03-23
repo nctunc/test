@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Activity Board</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero card">
+        <div>
+          <p class="eyebrow">Team activity planner</p>
+          <h1>Collect and vote on team activity ideas</h1>
+          <p class="hero-copy">
+            Submit suggestions for the next team event, then give each idea one thumbs up.
+          </p>
+        </div>
+        <div class="hero-badge">
+          <span>SQLite persistence</span>
+          <strong id="suggestionCount">0 ideas</strong>
+        </div>
+      </section>
+
+      <section class="layout-grid">
+        <section class="card form-card">
+          <h2>Add a suggestion</h2>
+          <form id="suggestionForm" class="suggestion-form">
+            <label>
+              <span>Title</span>
+              <input id="title" name="title" type="text" maxlength="100" required placeholder="e.g. Board game lunch" />
+            </label>
+
+            <label>
+              <span>Description <em>(optional)</em></span>
+              <textarea id="description" name="description" rows="4" maxlength="280" placeholder="Share a few details or leave this blank."></textarea>
+            </label>
+
+            <button type="submit" class="primary-button">Submit suggestion</button>
+            <p id="formMessage" class="form-message" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <section class="card list-card">
+          <div class="list-header">
+            <div>
+              <h2>Suggestions</h2>
+              <p>Sorted by likes, with newest items breaking ties.</p>
+            </div>
+          </div>
+          <div id="suggestionsList" class="suggestions-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <template id="suggestionTemplate">
+      <article class="suggestion-item">
+        <div class="suggestion-main">
+          <div class="suggestion-title-row">
+            <h3 class="suggestion-title"></h3>
+            <span class="likes-pill"></span>
+          </div>
+          <p class="suggestion-description"></p>
+          <p class="suggestion-meta"></p>
+        </div>
+        <button class="like-button" type="button">👍 Like</button>
+      </article>
+    </template>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
